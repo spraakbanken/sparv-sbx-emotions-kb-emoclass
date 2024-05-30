@@ -164,3 +164,5 @@ CHANGELOG.md:
 .PHONY: snapshot-update
 snapshot-update:
 	${INVENV} pytest --snapshot-update
+
+### === project targets below this line ===
