@@ -11,6 +11,7 @@ dependencies = [
     # "transformers>=4.34.1",
     "huggingface_hub>=0.13,<0.24", # workaround to https://github.com/huggingface/setfit/issues/544
     "setfit>=1.0.3",
+    "sklearn<1.3",                 # model is based with version 1.2.2
 ]
 readme = "README.md"
 requires-python = ">= 3.8.1,<3.12"
