@@ -45,3 +45,8 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/sbx_sentence_emotional_classification_kb_emoclass"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.3.3",
+]
