@@ -68,7 +68,7 @@ else
   INVENV =
 endif
 
-default_cov := "--cov=${PROJECT_SRC}"
+default_cov := "--cov='sparv-sbx-sentence-emotional-classification-kb-emoclass'"
 cov_report := "term-missing"
 cov := ${default_cov}
 

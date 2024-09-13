@@ -2,7 +2,7 @@
 
 from typing import Optional
 
-from setfit import SetFitModel
+from setfit import SetFitModel  # type: ignore[import-not-found]
 
 MODEL_NAME = "KBLab/emotional-classification"
 MODEL_REVISION = "73f1663770e79ff5c1aa12a38063a13537a02ce0"
@@ -37,6 +37,7 @@ class EmotionalClassifier:
         Args:
             model: An optional model to use. If no model is given,
                 the default model will be loaded.
+            lang: The language to generate labels in. (Defaults to 'en').
         """
         if lang == "en":
             self.labels = LABELS_ENG
