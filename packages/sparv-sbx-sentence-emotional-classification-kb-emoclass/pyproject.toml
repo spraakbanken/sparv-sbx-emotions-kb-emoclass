@@ -8,7 +8,11 @@ authors = [
     { name = "Språkbanken Text", email = "sb-info@svenska.gu.se" },
     { name = "Kristoffer Andersson", email = "kristoffer.andersson@gu.se" },
 ]
-dependencies = ["sparv-pipeline>=5.2.0"]
+dependencies = [
+    "huggingface-hub>=0.13,<0.24", # workaround to https://github.com/huggingface/setfit/issues/544
+    "setfit>=1.0.3",
+    "sparv-pipeline>=5.2.0",
+]
 classifiers = [
     "Development Status :: 3 - Alpha",
     # "Development Status :: 4 - Beta",
@@ -47,6 +51,4 @@ build-backend = "hatchling.build"
 packages = ["src/sbx_sentence_emotional_classification_kb_emoclass"]
 
 [tool.uv]
-dev-dependencies = [
-    "pytest>=8.3.3",
-]
+dev-dependencies = ["pytest-cov>=5.0.0", "pytest>=8.3.3"]

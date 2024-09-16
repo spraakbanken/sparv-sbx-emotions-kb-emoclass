@@ -2,7 +2,7 @@
 
 from typing import Optional
 
-from setfit import SetFitModel  # type: ignore[import-not-found]
+from setfit import SetFitModel  # type: ignore[import-untyped]
 
 MODEL_NAME = "KBLab/emotional-classification"
 MODEL_REVISION = "73f1663770e79ff5c1aa12a38063a13537a02ce0"
