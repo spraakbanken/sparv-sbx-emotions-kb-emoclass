@@ -68,7 +68,7 @@ else
   INVENV =
 endif
 
-default_cov := "--cov='sparv-sbx-sentence-emotional-classification-kb-emoclass'"
+default_cov := "--cov=packages/sparv-sbx-sentence-emotional-classification-kb-emoclass"
 cov_report := "term-missing"
 cov := ${default_cov}
 
@@ -101,7 +101,7 @@ test:
 .PHONY: test-w-coverage
 # run all tests with coverage collection
 test-w-coverage:
-	${INVENV} pytest -vv ${cov}  --cov-report=${cov_report} ${all_tests}
+	${INVENV} pytest -vv ${cov}  --cov-report=${cov_report} .
 
 .PHONY: doc-tests
 doc-tests:
