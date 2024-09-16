@@ -10,7 +10,7 @@ authors = [
 ]
 dependencies = [
     "huggingface-hub>=0.13,<0.24",
-    "scikit-learn<1.3",
+    "scikit-learn>=1.2,<1.3",
     # workaround to https://github.com/huggingface/setfit/issues/544
     "setfit>=1.0.3",
     "sparv-pipeline>=5.2.0",
