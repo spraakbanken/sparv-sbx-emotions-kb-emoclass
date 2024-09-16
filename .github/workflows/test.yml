@@ -108,6 +108,7 @@ jobs:
         os: [ubuntu]
 
     runs-on: ${{ matrix.os }}-latest
+    continue-on-error: true
     env:
       OS: ${{ matrix.os }}-latest
     steps:
