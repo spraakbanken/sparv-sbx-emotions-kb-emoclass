@@ -7,3 +7,6 @@ dev-dependencies = [
 ]
 [tool.uv.workspace]
 members = ["packages/sparv-sbx-sentence-emotional-classification-kb-emoclass"]
+
+[tool.coverage.run]
+omit = ["packages/*/tests/*"]
