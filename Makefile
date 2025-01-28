@@ -58,7 +58,7 @@ help:
 
 PLATFORM := `uname -o`
 REPO := sparv-sbx-emotional-classification
-PROJECT_SRC := "packages/sparv-sbx-sentence-emotional-classification-kb-emoclass/src"
+PROJECT_SRC := "sparv-sbx-sentence-emotional-classification-kb-emoclass/src"
 
 ifeq (${VIRTUAL_ENV},)
   VENV_NAME = .venv
@@ -72,8 +72,8 @@ default_cov := "--cov"
 cov_report := "term-missing"
 cov := ${default_cov}
 
-all_tests := packages/sparv-sbx-sentence-emotional-classification-kb-emoclass/tests
-tests := packages/sparv-sbx-sentence-emotional-classification-kb-emoclass/tests
+all_tests := sparv-sbx-sentence-emotional-classification-kb-emoclass/tests
+tests := sparv-sbx-sentence-emotional-classification-kb-emoclass/tests
 
 info:
 	@echo "Platform: ${PLATFORM}"

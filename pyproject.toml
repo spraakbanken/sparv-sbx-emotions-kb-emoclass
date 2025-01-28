@@ -6,7 +6,7 @@ dev-dependencies = [
     "pytest-cov>=5.0.0",
 ]
 [tool.uv.workspace]
-members = ["packages/sparv-sbx-sentence-emotional-classification-kb-emoclass"]
+members = ["sparv-sbx-sentence-emotional-classification-kb-emoclass"]
 
 [tool.coverage.run]
-omit = ["packages/*/tests/*"]
+omit = ["*/tests/*"]
