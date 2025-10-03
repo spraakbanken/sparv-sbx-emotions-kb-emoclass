@@ -1,7 +1,5 @@
 """Emotional classifier."""
 
-from typing import Optional
-
 from setfit import SetFitModel  # type: ignore[import-untyped]
 
 MODEL_NAME = "KBLab/emotional-classification"
@@ -31,7 +29,7 @@ LABELS_ENG = {
 class EmotionalClassifier:
     """Emotional classifier."""
 
-    def __init__(self, model: Optional[SetFitModel] = None, lang: str = "en") -> None:
+    def __init__(self, model: SetFitModel | None = None, lang: str = "en") -> None:
         """Emotional classifier.
 
         Args:
