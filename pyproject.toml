@@ -1,10 +1,18 @@
-[tool.uv]
-dev-dependencies = [
+[project]
+name = "sparv-sbx-emotional-classification-workspace"
+dependencies = []
+requires-python = ">=3.11"
+version = "0.0.0"
+
+[dependency-groups]
+dev = [
     "pytest>=8.3.3",
     "ruff>=0.6.4",
     "mypy>=1.11.2",
     "pytest-cov>=5.0.0",
 ]
+
+[tool.uv]
 [tool.uv.workspace]
 members = ["sparv-sbx-sentence-emotional-classification-kb-emoclass"]
 
