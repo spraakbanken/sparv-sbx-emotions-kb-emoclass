@@ -22,7 +22,7 @@ repos:
             "--format=requirements-txt",
             "--no-hashes",
             "--no-emit-project",
-            "--output-file=sparv-sbx-sentence-sentiment-kb-sent/tests/requirements-testing.lock",
+            "--output-file=sparv-sbx-sentence-emotional-classification-kb-emoclass/tests/requirements-testing.lock",
           ]
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
