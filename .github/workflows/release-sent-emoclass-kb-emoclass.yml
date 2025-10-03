@@ -16,30 +16,29 @@ permissions:
   contents: read
 
 env:
-  MINIMUM_PYTHON_VERSION: "3.8"
-  UV_VERSION: "0.4.9"
-  UV_CACHE_DIR: /tmp/.uv-cache
+  MINIMUM_PYTHON_VERSION: "3.9"
+  UV_VERSION: "0.8.13"
 
 jobs:
   build:
     # This action builds distribution files for upload to PyPI
 
-    name: ubuntu / 3.8 / build
+    name: ubuntu / 3.9 / build
     runs-on: ubuntu-latest
     steps:
       #----------------------------------------------
       #       check-out repo and set-up python
       #----------------------------------------------
-      - name: Check out repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493 # v5.0.0
         with:
+          persist-credentials: false
           submodules: true
 
       #----------------------------------------------
       #  -----  setup python   -----
       #----------------------------------------------
       - name: Set up the environment
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
         id: setup-python
         with:
           python-version: ${{ env.MINIMUM_PYTHON_VERSION }}
@@ -48,16 +47,10 @@ jobs:
       #  -----  setup uv and load cache   -----
       #----------------------------------------------
       - name: Set up uv
-        run: curl -LsSf https://astral.sh/uv/${{ env.UV_VERSION }}/install.sh | sh
-
-      - name: Restore uv cache
-        uses: actions/cache@v4
+        uses: astral-sh/setup-uv@2841f9f5c1f3a4d2fe660cb20a8910794bac0423
         with:
-          path: /tmp/.uv-cache
-          key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
-          restore-keys: |
-            uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
-            uv-${{ runner.os }}
+          version: ${{ env.UV_VERSION }}
+          enable-cache: true
 
       #----------------------------------------------
       #  -----  build distribution -----
@@ -68,19 +61,16 @@ jobs:
       #----------------------------------------------
       #  -----  upload artifacts  -----
       #----------------------------------------------
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: pypi_files
           path: packages/sparv-sbx-sentence-emotional-classification-kb-emoclass/dist
-
-      - name: Minimize uv cache
-        run: uv cache prune --ci
 
   test-build:
     # This action runs the test suite on the built artifact in the `build` action.
     # The default is to run this in ubuntu, macos and windows
 
-    name: ${{ matrix.os }} / 3.8 / test built artifact
+    name: ${{ matrix.os }} / 3.9 / test built artifact
     needs: [build]
 
     strategy:
@@ -93,17 +83,18 @@ jobs:
 
     runs-on: ${{ matrix.os }}-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493 # v5.0.0
         with:
+          persist-credentials: false
           submodules: true
 
       - name: set up python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
         with:
           python-version: ${{ env.MINIMUM_PYTHON_VERSION }}
 
       - name: get dist artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@4a24838f3d5601fd639834081e118c2995d51e1c
         with:
           name: pypi_files
           path: dist
@@ -124,7 +115,7 @@ jobs:
     permissions: {}
     steps:
       - name: Decide whether the needed jobs succeeded or failed
-        uses: re-actors/alls-green@release/v1
+        uses: re-actors/alls-green@05ac9388f0aebcb5727afa17fcccfecd6f8ec5fe # v1.2.2
         with:
           jobs: ${{ toJSON(needs) }}
           # allowed-failures: coverage
@@ -141,18 +132,19 @@ jobs:
       # IMPORTANT: this permission is mandatory for trusted publishing
       id-token: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493 # v5.0.0
         with:
+          persist-credentials: false
           fetch-depth: 0
       - name: Set up Python ${{ env.MINIMUM_PYTHON_VERSION }}
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
         with:
           python-version: ${{ env.MINIMUM_PYTHON_VERSION }}
       - name: get dist artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@4a24838f3d5601fd639834081e118c2995d51e1c
         with:
           name: pypi_files
           path: dist
 
       - name: Publish package to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
+        uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e # v1.13.0
