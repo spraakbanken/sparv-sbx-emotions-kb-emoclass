@@ -11,8 +11,15 @@ dev = [
     "mypy>=1.11.2",
     "pytest-cov>=5.0.0",
 ]
+metadata = [
+    "sparv-sbx-metadata",
+]
 
 [tool.uv]
+
+[tool.uv.sources]
+sparv-sbx-metadata = { git = "https://github.com/spraakbanken/sparv-sbx-metadata", tag = "v2.3.1" }
+
 [tool.uv.workspace]
 members = ["sparv-sbx-sentence-emotional-classification-kb-emoclass"]
 
