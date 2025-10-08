@@ -28,7 +28,7 @@ classifiers = [
     # "Operating System :: Microsoft :: Windows",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
+    # "Programming Language :: Python :: 3.13",  # See here: https://github.com/spraakbanken/sparv-sbx-emotional-classification/issues/12
     "Programming Language :: Python :: Implementation :: CPython",
     # "uncomment if you test on these interpreters:",
     # "Programming Language :: Python :: Implementation :: IronPython",
