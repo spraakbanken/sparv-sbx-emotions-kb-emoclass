@@ -34,7 +34,7 @@ jobs:
           # remove the unused versions
           - "3.11"
           - "3.12"
-          - "3.13"
+          # - "3.13" scikit-learn 1.2.2 doesn't support python 3.13
 
     runs-on: ${{ matrix.os }}-latest
     env:
