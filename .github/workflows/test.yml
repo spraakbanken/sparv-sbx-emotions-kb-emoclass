@@ -160,6 +160,9 @@ jobs:
       - name: Install dependencies
         run: make install-dev
 
+      - name: sparv setup
+        run: echo "" | .venv/bin/sparv setup
+
       - name: Run tests for example-${{ matrix.example }}
         run: make test-example-${{ matrix.example }}
 
