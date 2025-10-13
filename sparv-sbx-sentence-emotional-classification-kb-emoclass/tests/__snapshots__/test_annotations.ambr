@@ -1,0 +1,8 @@
+# serializer version: 1
+# name: test_annotate_sentence
+  list([
+    'HAPPINESS',
+    'ABSENCE OF EMOTION',
+    'SADNESS/DISAPPOINTMENT',
+  ])
+# ---
