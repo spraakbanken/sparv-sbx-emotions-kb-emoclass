@@ -49,6 +49,7 @@ Repository = "https://github.com/spraakbanken/sparv-sbx-emotional-classification
 dev = [
     "pytest>=8.3.3",
     "sparv-testing",
+    "syrupy>=5.0.0",
 ]
 
 [build-system]
