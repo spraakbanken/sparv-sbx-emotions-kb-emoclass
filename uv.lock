@@ -2371,6 +2371,7 @@ dependencies = [
 [package.dev-dependencies]
 dev = [
     { name = "pytest" },
+    { name = "sparv-testing" },
 ]
 
 [package.metadata]
@@ -2382,7 +2383,18 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-dev = [{ name = "pytest", specifier = ">=8.3.3" }]
+dev = [
+    { name = "pytest", specifier = ">=8.3.3" },
+    { name = "sparv-testing", git = "https://github.com/spraakbanken/sparv-testing?tag=v0.2.0" },
+]
+
+[[package]]
+name = "sparv-testing"
+version = "0.2.0"
+source = { git = "https://github.com/spraakbanken/sparv-testing?tag=v0.2.0#7cfa166e4699d3f2888f602ab7b4a8927891d5d8" }
+dependencies = [
+    { name = "sparv" },
+]
 
 [[package]]
 name = "stanza"

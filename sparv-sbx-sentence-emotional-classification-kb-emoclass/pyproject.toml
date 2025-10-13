@@ -48,6 +48,7 @@ Repository = "https://github.com/spraakbanken/sparv-sbx-emotional-classification
 [dependency-groups]
 dev = [
     "pytest>=8.3.3",
+    "sparv-testing",
 ]
 
 [build-system]
@@ -57,3 +58,6 @@ build-backend = "uv_build"
 [tool.uv.build-backend]
 module-name = "sbx_sentence_emotional_classification_kb_emoclass"
 source-exclude = ["/.github", "/docs"]
+
+[tool.uv.sources]
+sparv-testing = { git = "https://github.com/spraakbanken/sparv-testing", tag = "v0.2.0" }

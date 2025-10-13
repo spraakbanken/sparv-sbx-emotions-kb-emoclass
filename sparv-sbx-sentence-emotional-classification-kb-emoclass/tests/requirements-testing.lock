@@ -320,7 +320,10 @@ smmap==5.0.2
 snakemake==7.32.3
     # via sparv
 sparv==5.3.1
-    # via sparv-sbx-sentence-emotional-classification-kb-emoclass
+    # via
+    #   sparv-sbx-sentence-emotional-classification-kb-emoclass
+    #   sparv-testing
+sparv-testing @ git+https://github.com/spraakbanken/sparv-testing@7cfa166e4699d3f2888f602ab7b4a8927891d5d8
 stanza==1.10.1
     # via sparv
 stopit==1.1.2
