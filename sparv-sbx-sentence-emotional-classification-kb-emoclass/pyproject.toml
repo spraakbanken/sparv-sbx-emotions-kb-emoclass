@@ -28,7 +28,7 @@ classifiers = [
     # "Operating System :: Microsoft :: Windows",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
+    # "Programming Language :: Python :: 3.13",  # See here: https://github.com/spraakbanken/sparv-sbx-emotional-classification/issues/12
     "Programming Language :: Python :: Implementation :: CPython",
     # "uncomment if you test on these interpreters:",
     # "Programming Language :: Python :: Implementation :: IronPython",
@@ -48,6 +48,8 @@ Repository = "https://github.com/spraakbanken/sparv-sbx-emotional-classification
 [dependency-groups]
 dev = [
     "pytest>=8.3.3",
+    "sparv-testing",
+    "syrupy>=5.0.0",
 ]
 
 [build-system]
@@ -57,3 +59,6 @@ build-backend = "uv_build"
 [tool.uv.build-backend]
 module-name = "sbx_sentence_emotional_classification_kb_emoclass"
 source-exclude = ["/.github", "/docs"]
+
+[tool.uv.sources]
+sparv-testing = { git = "https://github.com/spraakbanken/sparv-testing", tag = "v0.2.0" }

@@ -59,4 +59,5 @@ class EmotionalClassifier:
             the predicted emotion
         """
         preds = self.model.predict([text], as_numpy=True)
+
         return self.labels[preds[0]]  # type: ignore

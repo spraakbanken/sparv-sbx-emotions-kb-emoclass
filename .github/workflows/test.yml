@@ -32,10 +32,9 @@ jobs:
         os: [ubuntu]
         python-version:
           # remove the unused versions
-          - "3.10"
           - "3.11"
           - "3.12"
-          # - "3.13" FIXME: See issue https://github.com/spraakbanken/sparv-sbx-emotional-classification/issues/12
+          # - "3.13" scikit-learn 1.2.2 doesn't support python 3.13
 
     runs-on: ${{ matrix.os }}-latest
     env:
@@ -120,6 +119,53 @@ jobs:
       - name: make test
         run: make test
 
+  test-example:
+    # This action runs tests for coverage collection and uploads them to codecov.io.
+    # This requires the secret `CODECOV_TOKEN` be set as secret on GitHub, both for
+    # Actions and Dependabot
+
+    name: "${{ matrix.os }} / ${{ matrix.python-version }} / test-examples / ${{ matrix.example }}"
+    strategy:
+      max-parallel: 4
+      fail-fast: false
+      matrix:
+        os: [ubuntu]
+        python-version: ["3.11"]
+        example:
+          - small-txt
+
+    runs-on: ${{ matrix.os }}-latest
+    env:
+      OS: ${{ matrix.os }}-latest
+      PYTHON: ${{ matrix.python-version }}
+      CS_ACCESS_TOKEN: ${{ secrets.CS_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493 # v5.0.0
+        with:
+          persist-credentials: false
+          submodules: true
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@d9ee7e2f262885c8843e45732f53001dc76be009
+        with:
+          version: ${{ env.UV_VERSION }}
+          enable-cache: true
+
+      - name: Set up Python ${{ matrix.python-version }}
+        id: setup-python
+        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: make install-dev
+
+      - name: sparv setup
+        run: echo "" | .venv/bin/sparv setup
+
+      - name: Run tests for example-${{ matrix.example }}
+        run: make test-example-${{ matrix.example }}
+
   # https://github.com/marketplace/actions/alls-green#why used for branch protection checks
   test-check:
     if: always()
@@ -127,6 +173,7 @@ jobs:
       - coverage
       # - doctests
       - minimal
+      - test-example
     runs-on: ubuntu-latest
     permissions: {}
     steps:

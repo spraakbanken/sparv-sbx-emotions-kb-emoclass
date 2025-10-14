@@ -1,0 +1,19 @@
+metadata:
+  id: example-small-txt
+  language: swe
+
+import:
+  importer: text_import:parse
+
+# sbx_sentence_sentiment_kb_sent:
+# num_decimals: 3
+
+export:
+  annotations:
+    - <sentence>
+    # - <token:word>
+    - <token>:stanza.pos
+    - <sentence>:sbx_sentence_emotional_classification_kb_emoclass.sentence-emotion--kb-emoclass
+
+sparv:
+  compression: none
