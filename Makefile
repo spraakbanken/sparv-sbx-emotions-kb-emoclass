@@ -182,3 +182,14 @@ update-example-small-txt-snapshot: assets/small-txt/small_export.gold.xml
 assets/small-txt/small_export.gold.xml: examples/small-txt/export/xml_export.pretty/small_export.xml
 	@mkdir -pv $(shell dirname "$@")
 	@cp $< $@
+
+.PHONY: check-example-load-time
+example-importtime-small-txt: examples/small-txt/importtime-small-txt.log
+
+.PHONY: examples/small-txt/importtime-small-txt.log
+examples/small-txt/importtime-small-txt.log:
+	cd examples/small-txt; ${INVENV} python -X importtime -m sparv config 2> importtime-small-txt.log
+
+.PHONY: display-importtime-small-txt
+display-importtime-small-txt: examples/small-txt/importtime-small-txt.log
+	tuna $<
