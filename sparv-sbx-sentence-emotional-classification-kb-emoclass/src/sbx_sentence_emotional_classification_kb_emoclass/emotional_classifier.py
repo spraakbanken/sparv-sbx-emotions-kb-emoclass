@@ -1,6 +1,8 @@
 """Emotional classifier."""
 
+import torch
 from setfit import SetFitModel  # type: ignore[import-untyped]
+from sparv import api as sparv_api
 
 MODEL_NAME = "KBLab/emotional-classification"
 MODEL_REVISION = "73f1663770e79ff5c1aa12a38063a13537a02ce0"
@@ -26,6 +28,9 @@ LABELS_ENG = {
 }
 
 
+logger = sparv_api.get_logger(__name__)
+
+
 class EmotionalClassifier:
     """Emotional classifier."""
 
@@ -42,8 +47,15 @@ class EmotionalClassifier:
         elif lang == "sv":
             self.labels = LABELS_SWE
         else:
-            raise ValueError("supported langs are 'en' and 'sv'. Given '{}'")
+            raise ValueError(f"supported langs are 'en' and 'sv'. Given '{lang}'")
         self.model = model or self._default_model()
+        if torch.cuda.is_available():
+            device = torch.device("cuda")
+        else:
+            device = torch.device("cpu")
+            logger.warning("Using CPU, is GPU available?")
+        logger.info("Using device=%s", device)
+        self.model = self.model.to(device)
 
     @classmethod
     def _default_model(cls) -> SetFitModel:
