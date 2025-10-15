@@ -193,3 +193,12 @@ examples/small-txt/importtime-small-txt.log:
 .PHONY: display-importtime-small-txt
 display-importtime-small-txt: examples/small-txt/importtime-small-txt.log
 	tuna $<
+
+install-dev-metadata:
+	uv sync --all-packages --group metadata --dev
+
+.PHONY: generate-metadata
+generate-metadata: install-dev-metadata \
+	sparv-sbx-sentence-emotional-classification-kb-emoclass/src/sbx_sentence_emotional_classification_kb_emoclass/metadata.yaml
+	rm -rf assets/metadata/export/sbx_metadata
+	cd assets/metadata; ${INVENV} sparv run sbx_metadata:plugin_analysis_metadata_export
