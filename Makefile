@@ -57,8 +57,8 @@ help:
 	@echo ""
 
 PLATFORM := `uname -o`
-REPO := sparv-sbx-emotional-classification
-PROJECT_SRC := "sparv-sbx-sentence-emotional-classification-kb-emoclass/src"
+REPO := sparv-sbx-emotions-kb-emoclass
+PROJECT_SRC := src
 
 ifeq (${VIRTUAL_ENV},)
   VENV_NAME = .venv
@@ -72,8 +72,8 @@ default_cov := "--cov"
 cov_report := "term-missing"
 cov := ${default_cov}
 
-all_tests := sparv-sbx-sentence-emotional-classification-kb-emoclass/tests
-tests := sparv-sbx-sentence-emotional-classification-kb-emoclass/tests
+all_tests := tests
+tests := tests
 
 info:
 	@echo "Platform: ${PLATFORM}"
@@ -198,7 +198,6 @@ install-dev-metadata:
 	uv sync --all-packages --group metadata --dev
 
 .PHONY: generate-metadata
-generate-metadata: install-dev-metadata \
-	sparv-sbx-sentence-emotional-classification-kb-emoclass/src/sbx_sentence_emotional_classification_kb_emoclass/metadata.yaml
+generate-metadata: install-dev-metadata src/sbx_emotions_kb_emoclass/metadata.yaml
 	rm -rf assets/metadata/export/sbx_metadata
 	cd assets/metadata; ${INVENV} sparv run sbx_metadata:plugin_analysis_metadata_export
