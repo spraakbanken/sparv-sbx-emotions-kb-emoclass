@@ -1,7 +1,7 @@
 """Sparv plugin for annotating sentences with emotional classification."""
 
 # from sparv import api as sparv_api
-from sbx_sentence_emotional_classification_kb_emoclass.annotations import annotate_sentence
+from sbx_emotions_kb_emoclass.annotations import annotate_sentence
 
 __all__ = ["annotate_sentence"]
 

@@ -1,5 +1,6 @@
-from sbx_sentence_emotional_classification_kb_emoclass.annotations import annotate_sentence
 from sparv_testing import MemoryOutput, MockAnnotation
+
+from sbx_emotions_kb_emoclass.annotations import annotate_sentence
 
 
 def test_annotate_sentence(snapshot) -> None:  # noqa: ANN001

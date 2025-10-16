@@ -2,7 +2,7 @@
 
 from sparv import api as sparv_api  # type: ignore [import-untyped]
 
-from sbx_sentence_emotional_classification_kb_emoclass.constants import PROJECT_NAME
+from sbx_emotions_kb_emoclass.constants import PROJECT_NAME
 
 logger = sparv_api.get_logger(__name__)
 
@@ -21,7 +21,7 @@ def annotate_sentence(
     # num_decimals_str: str = sparv_api.Config(f"{PROJECT_NAME}.num_decimals"),
 ) -> None:
     """Sentiment analysis of sentence with KBLab/robust-swedish-sentiment-multiclass."""
-    from sbx_sentence_emotional_classification_kb_emoclass.emotional_classifier import (  # noqa: PLC0415
+    from sbx_emotions_kb_emoclass.emotional_classifier import (  # noqa: PLC0415
         EmotionalClassifier,
     )
 

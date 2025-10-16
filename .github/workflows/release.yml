@@ -99,10 +99,10 @@ jobs:
           name: pypi_files
           path: dist
 
-      - run: rm -r sparv-sbx-sentence-emotional-classification-kb-emoclass/src
+      - run: rm -r src
       - run: pip install typing-extensions
-      - run: pip install -r sparv-sbx-sentence-emotional-classification-kb-emoclass/tests/requirements-testing.lock
-      - run: pip install sparv-sbx-sentence-emotional-classification-kb-emoclass --no-index --no-deps --find-links dist --force-reinstall
+      - run: pip install -r tests/requirements-testing.lock
+      - run: pip install sparv-sbx-emotions-kb-emoclass --no-index --no-deps --find-links dist --force-reinstall
       - run: pytest
 
   # https://github.com/marketplace/actions/alls-green#why used for branch protection checks

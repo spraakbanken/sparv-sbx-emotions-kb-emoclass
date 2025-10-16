@@ -1,3 +1,3 @@
 """Constants used in this project."""
 
-PROJECT_NAME: str = "sbx_sentence_emotional_classification_kb_emoclass"
+PROJECT_NAME: str = "sbx_emotions_kb_emoclass"
