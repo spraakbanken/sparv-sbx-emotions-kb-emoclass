@@ -5,7 +5,7 @@ fail_fast: false
 
 exclude: |
   (?x)^(
-    .github/workflows/release-sentence-sentiment-kb-sent.yml
+    .github/workflows/release.yml
   )$
 
 repos:
@@ -14,25 +14,13 @@ repos:
     hooks:
       - id: uv-lock
       # Update the uv lockfile
-      - id: uv-lock
-        # Change <path/to/project> to your relative path
-        files: sparv-sbx-sentence-emotional-classification-kb-emoclass/pyproject.toml
-        args: [--project, sparv-sbx-sentence-emotional-classification-kb-emoclass]
       - id: uv-export
-        args:
-          [
-            "--package",
-            "sparv-sbx-sentence-emotional-classification-kb-emoclass",
-            "--dev",
-            "--format=requirements-txt",
-            "--no-hashes",
-            "--no-emit-project",
-            "--output-file=sparv-sbx-sentence-emotional-classification-kb-emoclass/tests/requirements-testing.lock",
-          ]
+        args: ["--dev", "--format=requirements-txt", "--no-hashes", "--no-emit-project", "--output-file=tests/requirements-testing.lock"]
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
       - id: check-yaml
+        args: [--allow-multiple-documents]
       - id: check-json
       - id: check-toml
       - id: check-merge-conflict

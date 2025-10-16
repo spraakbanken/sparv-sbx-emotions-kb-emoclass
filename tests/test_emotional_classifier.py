@@ -1,7 +1,8 @@
 """Emotional classifier."""
 
 import pytest
-from sbx_sentence_emotional_classification_kb_emoclass.emotional_classifier import (
+
+from sbx_emotions_kb_emoclass.emotional_classifier import (
     EmotionalClassifier,
 )
 

@@ -6,12 +6,6 @@ resolution-markers = [
     "python_full_version < '3.12'",
 ]
 
-[manifest]
-members = [
-    "sparv-sbx-emotional-classification-workspace",
-    "sparv-sbx-sentence-emotional-classification-kb-emoclass",
-]
-
 [[package]]
 name = "accelerate"
 version = "1.10.1"
@@ -2321,46 +2315,9 @@ wheels = [
 ]
 
 [[package]]
-name = "sparv-sbx-emotional-classification-workspace"
-version = "0.0.0"
-source = { virtual = "." }
-
-[package.dev-dependencies]
-dev = [
-    { name = "mypy" },
-    { name = "pytest" },
-    { name = "pytest-cov" },
-    { name = "ruff" },
-]
-metadata = [
-    { name = "sparv-sbx-metadata" },
-]
-
-[package.metadata]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "mypy", specifier = ">=1.11.2" },
-    { name = "pytest", specifier = ">=8.3.3" },
-    { name = "pytest-cov", specifier = ">=5.0.0" },
-    { name = "ruff", specifier = ">=0.6.4" },
-]
-metadata = [{ name = "sparv-sbx-metadata", git = "https://github.com/spraakbanken/sparv-sbx-metadata?tag=v2.3.1" }]
-
-[[package]]
-name = "sparv-sbx-metadata"
-version = "2.3.1"
-source = { git = "https://github.com/spraakbanken/sparv-sbx-metadata?tag=v2.3.1#f8a83f74e72db2e7713fd7d2060c33ba74a1e001" }
-dependencies = [
-    { name = "langcodes" },
-    { name = "pyyaml" },
-    { name = "sparv" },
-]
-
-[[package]]
-name = "sparv-sbx-sentence-emotional-classification-kb-emoclass"
+name = "sparv-sbx-emotions-kb-emoclass"
 version = "0.1.0"
-source = { editable = "sparv-sbx-sentence-emotional-classification-kb-emoclass" }
+source = { editable = "." }
 dependencies = [
     { name = "numpy" },
     { name = "scikit-learn" },
@@ -2370,9 +2327,15 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
+    { name = "mypy" },
     { name = "pytest" },
+    { name = "pytest-cov" },
+    { name = "ruff" },
     { name = "sparv-testing" },
     { name = "syrupy" },
+]
+metadata = [
+    { name = "sparv-sbx-metadata" },
 ]
 
 [package.metadata]
@@ -2385,9 +2348,23 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
+    { name = "mypy", specifier = ">=1.11.2" },
     { name = "pytest", specifier = ">=8.3.3" },
+    { name = "pytest-cov", specifier = ">=5.0.0" },
+    { name = "ruff", specifier = ">=0.6.4" },
     { name = "sparv-testing", git = "https://github.com/spraakbanken/sparv-testing?tag=v0.2.0" },
     { name = "syrupy", specifier = ">=5.0.0" },
+]
+metadata = [{ name = "sparv-sbx-metadata", git = "https://github.com/spraakbanken/sparv-sbx-metadata?tag=v2.3.1" }]
+
+[[package]]
+name = "sparv-sbx-metadata"
+version = "2.3.1"
+source = { git = "https://github.com/spraakbanken/sparv-sbx-metadata?tag=v2.3.1#f8a83f74e72db2e7713fd7d2060c33ba74a1e001" }
+dependencies = [
+    { name = "langcodes" },
+    { name = "pyyaml" },
+    { name = "sparv" },
 ]
 
 [[package]]
