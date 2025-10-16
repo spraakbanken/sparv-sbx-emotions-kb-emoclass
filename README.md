@@ -10,7 +10,7 @@
 
 [![CI(check)](https://github.com/spraakbanken/sparv-sbx-emotions-kb-emoclass/actions/workflows/check.yml/badge.svg)](https://github.com/spraakbanken/sparv-sbx-emotions-kb-emoclass/actions/workflows/check.yml)
 [![CI(release)](https://github.com/spraakbanken/sparv-sbx-emotions-kb-emoclass/actions/workflows/release.yml/badge.svg)](https://github.com/spraakbanken/sparv-sbx-emotions-kb-emoclass/actions/workflows/release.yml)
-[![CI(scheduled)](https://github.com/spraakbanken/sparv-sbx-emotions-kb-emoclass/actions/workflows/scheduled.yml/badge.svg)](https://github.com/spraakbanken/sparv-sbx-emotions-kb-emoclass/actions/workflows/scheduled.yml)
+[![CI(scheduled)](https://github.com/spraakbanken/sparv-sbx-emotions-kb-emoclass/actions/workflows/rolling.yml/badge.svg)](https://github.com/spraakbanken/sparv-sbx-emotions-kb-emoclass/actions/workflows/rolling.yml)
 [![CI(test)](https://github.com/spraakbanken/sparv-sbx-emotions-kb-emoclass/actions/workflows/test.yml/badge.svg)](https://github.com/spraakbanken/sparv-sbx-emotions-kb-emoclass/actions/workflows/test.yml)
 
 Plugin to [Sparv](https://github.com/spraakbanken/sparv) plugin to annotate sentences, paragraphs and texts with emotional classification.
