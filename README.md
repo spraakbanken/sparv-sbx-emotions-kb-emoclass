@@ -1,12 +1,13 @@
 # sparv-sbx-emotions-kb-emoclass
 
 [![PyPI version](https://img.shields.io/pypi/v/sparv-sbx-emotions-kb-emoclass.svg)](https://pypi.org/project/sparv-sbx-emotions-kb-emoclass/)
+[![PyPI license](https://img.shields.io/pypi/l/sparv-sbx-emotions-kb-emoclass.svg)](https://pypi.org/project/sparv-sbx-emotions-kb-emoclass/)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/sparv-sbx-emotions-kb-emoclass.svg)](https://pypi.org/project/sparv-sbx-emotions-kb-emoclass)
 
 [![Maturity badge - level 2](https://img.shields.io/badge/Maturity-Level%202%20--%20First%20Release-yellowgreen.svg)](https://github.com/spraakbanken/getting-started/blob/main/scorecard.md)
-[![Stage](https://img.shields.io/pypi/status/sparv-sbx-emotions-kb-emoclass)](https://pypi.org/project/sparv-sbx-emotions-kb-emoclass/)
+[![Stage](https://img.shields.io/pypi/status/sparv-sbx-emotions-kb-emoclass.svg)](https://pypi.org/project/sparv-sbx-emotions-kb-emoclass/)
 
-[![Code Coverage](https://codecov.io/gh/spraakbanken/sparv-sbx-emotions-kb-emoclass/branch/main/graph/badge.svg)](https://codecov.io/gh/spraakbanken/sparv-sbx-emotions-kb-emoclass/)
+[![codecov](https://codecov.io/gh/spraakbanken/sparv-sbx-emotions-kb-emoclass/graph/badge.svg?token=DUV4CL6AK2)](https://codecov.io/gh/spraakbanken/sparv-sbx-emotions-kb-emoclass)
 
 [![CI(check)](https://github.com/spraakbanken/sparv-sbx-emotions-kb-emoclass/actions/workflows/check.yml/badge.svg)](https://github.com/spraakbanken/sparv-sbx-emotions-kb-emoclass/actions/workflows/check.yml)
 [![CI(release)](https://github.com/spraakbanken/sparv-sbx-emotions-kb-emoclass/actions/workflows/release.yml/badge.svg)](https://github.com/spraakbanken/sparv-sbx-emotions-kb-emoclass/actions/workflows/release.yml)
