@@ -80,6 +80,14 @@ sbx_emotions_kb_emoclass:
   annotation_lang: sv
 ```
 
+### Metadata
+
+#### Model
+
+| Type  | HuggingFace Model                                                                         | Revision                                 |
+| ----- | ----------------------------------------------------------------------------------------- | ---------------------------------------- |
+| Model | [`KBLab/emotional-classification`](https://huggingface.co/KBLab/emotional-classification) | 73f1663770e79ff5c1aa12a38063a13537a02ce0 |
+
 ## Known issues
 
 - `InconsistentWarning` because of using `scikit-learn` of version `1.7.2`. See [Issue 11](https://github.com/spraakbanken/sparv-sbx-emotions-kb-emoclass/issues/11).
@@ -87,6 +95,28 @@ sbx_emotions_kb_emoclass:
 
 > [!NOTE] You might need to put
 > `export CFLAGS="-Wno-error=incompatible-pointer-types" ; export CXXFLAGS="-Wno-error=incompatible-pointer-types"` before installing
+
+## Minimum Supported Python Version Policy
+
+The Minimum Supported Python Version is fixed for a given minor (1.x)
+version. However it can be increased when bumping minor versions, i.e. going
+from 1.0 to 1.1 allows us to increase the Minimum Supported Python Version. Users unable to increase their
+Python version can use an older minor version instead. Below is a list of sparv-sbx-emotions-kb-emoclass versions
+and their Minimum Supported Python Version:
+
+- v0.1: Python 3.11.
+
+Note however that sparv-sbx-emotions-kb-emoclass also has dependencies, which might have different MSPV
+policies. We try to stick to the above policy when updating dependencies, but
+this is not always possible.
+
+## Changelog
+
+This project keeps a [changelog](./CHANGELOG.md).
+
+## License
+
+This repository is licensed under the [MIT](./LICENSE) license.
 
 ## Development
 
