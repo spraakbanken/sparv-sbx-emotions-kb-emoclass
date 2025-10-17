@@ -20,13 +20,13 @@ Plugin to [Sparv](https://github.com/spraakbanken/sparv) plugin to annotate sent
 
 First, install [Sparv](https://github.com/spraakbanken/sparv) as suggested,
 
-with [`pipx`](https://):
+with [`pipx`](https://pipx.pypa.io/):
 
 ```bash
 pipx install sparv
 ```
 
-or, with [`uv-pipx`]():
+or, with [`uv-pipx`](https://github.com/pytgaen/uv-pipx):
 
 ```bash
 uvpipx install sparv
@@ -64,6 +64,20 @@ export:
     annotations:
         - <sentence>:sbx_emotions_kb_emoclass.sentence-emotion--kb-emoclass
         ...
+```
+
+### Configuration
+
+You can configure this plugin in the following ways.
+
+#### Language of Annotations
+
+The language of the annotations defaults to `en` (English), but you can change that to `sv` (Swedish).
+
+```yaml
+# file: config.yaml
+sbx_emotions_kb_emoclass:
+  annotation_lang: sv
 ```
 
 ## Known issues
