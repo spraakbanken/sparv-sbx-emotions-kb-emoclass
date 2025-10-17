@@ -27,6 +27,8 @@ LABELS_ENG = {
     6: "HOPE/ANTICIPATION",
 }
 
+DEFAULT_LANG: str = "en"
+
 
 logger = sparv_api.get_logger(__name__)
 
@@ -34,7 +36,7 @@ logger = sparv_api.get_logger(__name__)
 class EmotionalClassifier:
     """Emotional classifier."""
 
-    def __init__(self, model: SetFitModel | None = None, lang: str = "en") -> None:
+    def __init__(self, model: SetFitModel | None = None, lang: str | None = None) -> None:
         """Emotional classifier.
 
         Args:
@@ -42,6 +44,8 @@ class EmotionalClassifier:
                 the default model will be loaded.
             lang: The language to generate labels in. (Defaults to 'en').
         """
+        if not lang:
+            lang = DEFAULT_LANG
         if lang == "en":
             self.labels = LABELS_ENG
         elif lang == "sv":

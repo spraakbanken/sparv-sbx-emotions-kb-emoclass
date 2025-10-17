@@ -13,30 +13,26 @@ SEP_TOKEN: str = " "
 def annotate_sentence(
     out_sentence_emotions: sparv_api.Output = sparv_api.Output(
         f"<sentence>:{PROJECT_NAME}.sentence-emotion--kb-emoclass",
-        # cls="sbx_sentence_sentiment_kb_sent",
         description="Emotional analysis of sentence with KBLab/emotional-classification",
     ),
     word: sparv_api.Annotation = sparv_api.Annotation("<token:word>"),
     sentence: sparv_api.Annotation = sparv_api.Annotation("<sentence>"),
-    # num_decimals_str: str = sparv_api.Config(f"{PROJECT_NAME}.num_decimals"),
+    annotation_lang: str | None = sparv_api.Config(f"{PROJECT_NAME}.annotation_lang"),
 ) -> None:
     """Sentiment analysis of sentence with KBLab/robust-swedish-sentiment-multiclass."""
     from sbx_emotions_kb_emoclass.emotional_classifier import (  # noqa: PLC0415
         EmotionalClassifier,
     )
 
-    # try:
-    #     num_decimals = int(num_decimals_str)
-    # except ValueError as exc:
-    #     raise sparv_api.SparvErrorMessage(
-    #         f"'{PROJECT_NAME}.num_decimals' must contain an 'int' got: '{num_decimals_str}'"
-    #     ) from exc
+    try:
+        classifier = EmotionalClassifier(lang=annotation_lang)
+    except ValueError as exc:
+        raise sparv_api.SparvErrorMessage(
+            f"'{PROJECT_NAME}.annotation_lang' got an unrecognized value: '{annotation_lang}'"
+        ) from exc
     sentences, _orphans = sentence.get_children(word)
     token_word = list(word.read())
     out_sentence_emotions_annotation = sentence.create_empty_attribute()
-
-    # analyzer = SentimentAnalyzer(num_decimals=num_decimals)
-    classifier = EmotionalClassifier()
 
     logger.progress(total=len(sentences))  # type: ignore
     for sent_i, sent in enumerate(sentences):
