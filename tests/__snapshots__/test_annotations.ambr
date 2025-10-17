@@ -1,8 +1,18 @@
 # serializer version: 1
-# name: test_annotate_sentence
+# name: test_annotate_sentence_lang_en
   list([
     'HAPPINESS',
     'ABSENCE OF EMOTION',
     'SADNESS/DISAPPOINTMENT',
   ])
+# ---
+# name: test_annotate_sentence_lang_sv
+  list([
+    'GLÄDJE',
+    'KÄNSLA SAKNAS',
+    'SORG/BESVIKELSE',
+  ])
+# ---
+# name: test_annotate_sentence_with_unsupported_lang_raise_value_error
+  '<ExceptionInfo SparvErrorMessage("<<<START>>>\\n\\n\'sbx_emotions_kb_emoclass.annotation_lang\' got an unrecognized value: \'xx\'<<<END>>>") tblen=2>'
 # ---
