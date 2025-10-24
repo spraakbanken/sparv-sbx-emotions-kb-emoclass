@@ -13,9 +13,9 @@ dependencies = [
     "sparv>=5.3.1",
     # numpy>=1.24.4 for python 3.12 support
     # numpy < 2.0.0 for working with scikit-learn<1.3.0
-    "numpy>=1.24.4,<2.0.0",
+    # "numpy>=1.24.4,<2.0.0",
     # scikit-learn<1.3.0 because setfit uses pickled file with this version
-    "scikit-learn>=1.2.0,< 1.3.0",
+    # "scikit-learn>=1.2.0,< 1.3.0",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
