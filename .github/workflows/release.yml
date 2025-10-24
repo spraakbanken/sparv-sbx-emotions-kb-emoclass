@@ -130,7 +130,7 @@ jobs:
 
     needs:
       - test-build
-    if: success() && startsWith(github.ref, 'refs/tags/sent-emoclass-kb-emoclass-v')
+    if: success() && startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     environment: release
     permissions:
