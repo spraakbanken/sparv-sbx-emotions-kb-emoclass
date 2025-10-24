@@ -24,7 +24,7 @@ models:
 other_references:
   - "Repository: https://github.com/spraakbanken/sparv-sbx-emotions-kb-emoclass"
 created: 2025-10-17
-updated: 2025-10-17
+updated: 2025-10-24
 ---
 id: sbx-swe-emotion_sentence-transformers-kblab_emotional_classification
 parent: sbx-swe-emotion-transformers-kblab_emotional_classification-parent

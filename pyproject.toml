@@ -1,7 +1,7 @@
 
 [project]
 name = "sparv-sbx-emotions-kb-emoclass"
-version = "0.1.0"
+version = "0.1.1"
 description = "A sparv plugin for classificating emotions in Swedish text."
 readme = "README.md"
 requires-python = ">=3.11"
