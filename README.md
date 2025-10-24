@@ -32,7 +32,7 @@ or, with [`uv-pipx`](https://github.com/pytgaen/uv-pipx):
 uvpipx install sparv
 ```
 
-Then install install `sparv-sbx-emotions-kb-emoclass` with,
+Then install `sparv-sbx-emotions-kb-emoclass` with,
 
 if you used `pipx` above:
 
@@ -54,7 +54,7 @@ annotation exclusively by adding it as the only annotation to export under `xml_
 ```yaml
 xml_export:
   annotations:
-    - <sentence>:sbx_emotions_kb_emoclass.sentence-emotion--kb-emoclass
+    - <sentence>:sbx_emotions_kb_emoclass.emotion--kb-emoclass
 ```
 
 To use it together with other annotations you might add it under `export`:
@@ -62,7 +62,7 @@ To use it together with other annotations you might add it under `export`:
 ```yaml
 export:
     annotations:
-        - <sentence>:sbx_emotions_kb_emoclass.sentence-emotion--kb-emoclass
+        - <sentence>:sbx_emotions_kb_emoclass.emotion--kb-emoclass
         ...
 ```
 
@@ -149,8 +149,6 @@ This repo uses [conventional commits](https://www.conventionalcommits.org/en/v1.
 
 ### Release a new version
 
-#### sparv-sbx-sentence-sentiment-kb-sent
-
 - Prepare the CHANGELOG: `make prepare-release`.
 - Edit `CHANGELOG.md` to your liking.
 - Add to git: `git add --update`
@@ -161,6 +159,6 @@ This repo uses [conventional commits](https://www.conventionalcommits.org/en/v1.
   - Patch: `make bumpversion part=patch` or `make bumpversion`
 - Push `main` and tags to GitHub: `git push main --tags` or `make publish`
   - [GitHub Actions workflow](./.github/workflows/release.yaml) will build, test and publish the package to [PyPi](https://pypi.prg).
-- Add metadata for [Språkbanken's resource](https://spraakbanken.gu.se/resurser)
+- Add metadata for [Språkbanken's resource](https://spraakbanken.gu.se/analyser)
   - Generate metadata: `make generate-metadata`
-  - Upload the files from `assets/metadata/export/sbx_metadata/utility` to <https://github.com/spraakbanken/metadata/tree/main/yaml/analysis>.
+  - Upload the files from `assets/metadata/export/sbx_metadata/analysis` to <https://github.com/spraakbanken/metadata/tree/main/yaml/analysis>.

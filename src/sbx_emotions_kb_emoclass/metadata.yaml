@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://github.com/spraakbanken/metadata/blob/main/schema/metadata.json
 id: sbx-swe-emotion-transformers-kblab_emotional_classification-parent
 abstract: true
 task: emotional analysis
@@ -39,10 +40,10 @@ description:
     and [KBLab/emotional-classification](https://huggingface.co/KBLab/emotional-classification).
 analysis_unit: sentence
 annotations:
-  - <sentence>:sbx_emotions_kb_emoclass.sentence-emotion--kb-emoclass
+  - <sentence>:sbx_emotions_kb_emoclass.emotion--kb-emoclass
 example_output: |-
   ```xml
-  <sentence sentence-emotion--kb-emoclass="SADNESS/DISAPPOINTMENT">
+  <sentence emotion--kb-emoclass="SADNESS/DISAPPOINTMENT">
   <token pos="PN">Jag</token>
   <token pos="VB">är</token>
   <token pos="PC">förvånad</token>

@@ -12,7 +12,7 @@ SEP_TOKEN: str = " "
 @sparv_api.annotator("Emotional classification of sentences", language=["swe"])
 def annotate_sentence(
     out_sentence_emotions: sparv_api.Output = sparv_api.Output(
-        f"<sentence>:{PROJECT_NAME}.sentence-emotion--kb-emoclass",
+        f"<sentence>:{PROJECT_NAME}.emotion--kb-emoclass",
         description="Emotional analysis of sentence with KBLab/emotional-classification",
     ),
     word: sparv_api.Annotation = sparv_api.Annotation("<token:word>"),
